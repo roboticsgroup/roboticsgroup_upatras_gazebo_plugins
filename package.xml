@@ -20,7 +20,7 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
 <package format="2">>
   <name>roboticsgroup_upatras_gazebo_plugins</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>Collection of gazebo plugins</description>
 
   <author email="costashatz@gmail.com">Konstantinos Chatzilygeroudis</author>
