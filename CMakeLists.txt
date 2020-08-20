@@ -1,32 +1,39 @@
-cmake_minimum_required(VERSION 2.8.6 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8.6)
+cmake_policy(SET CMP0048 NEW)
 project(roboticsgroup_upatras_gazebo_plugins)
 
-# Set CMP0054
 cmake_policy(SET CMP0054 NEW)
 
-# Load catkin and all dependencies required for this package
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  gazebo_ros
-  control_toolbox
+find_package(catkin REQUIRED
+  COMPONENTS
+    control_toolbox
+    gazebo_ros
+    roscpp
 )
 
-# Depend on system install of Gazebo
 find_package(gazebo REQUIRED)
-# Gazebo cxx flags should have all the required C++ flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
-
-find_package(Boost REQUIRED)
 
 catkin_package(
-  DEPENDS
-    roscpp
-    gazebo_ros
+  INCLUDE_DIRS
+    include
+  LIBRARIES
+    roboticsgroup_upatras_gazebo_mimic_joint_plugin
+    roboticsgroup_upatras_gazebo_disable_link_plugin
+  CATKIN_DEPENDS
     control_toolbox
+    gazebo_ros
+    roscpp
+)
+
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
 )
 
 link_directories(${GAZEBO_LIBRARY_DIRS})
-include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} include)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
 add_library(roboticsgroup_upatras_gazebo_mimic_joint_plugin src/mimic_joint_plugin.cpp)
 target_link_libraries(roboticsgroup_upatras_gazebo_mimic_joint_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})

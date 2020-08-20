@@ -26,14 +26,11 @@ namespace gazebo {
 
     DisableLinkPlugin::DisableLinkPlugin()
     {
-        kill_sim = false;
-
         link_.reset();
     }
 
     DisableLinkPlugin::~DisableLinkPlugin()
     {
-        kill_sim = true;
     }
 
     void DisableLinkPlugin::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
@@ -54,11 +51,12 @@ namespace gazebo {
         if (link_) {
             link_->SetEnabled(false);
             // Output some confirmation
-            ROS_INFO_STREAM("DisableLinkPlugin loaded! Link: \"" << link_name_);
+            ROS_INFO_STREAM("DisableLinkPlugin loaded! Link: " << link_name_);
         }
         else
-            ROS_ERROR_STREAM("Link" << link_name_ << " not found! DisableLinkPlugin could not be loaded.");
+            ROS_ERROR_STREAM("Link " << link_name_ << " not found! DisableLinkPlugin could not be loaded.");
     }
 
     GZ_REGISTER_MODEL_PLUGIN(DisableLinkPlugin);
-}
+
+}  // namespace gazebo

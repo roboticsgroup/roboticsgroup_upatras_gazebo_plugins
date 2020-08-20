@@ -38,7 +38,7 @@ namespace gazebo {
 
     MimicJointPlugin::~MimicJointPlugin()
     {
-        this->updateConnection.reset();
+        update_connection_.reset();
     }
 
     void MimicJointPlugin::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
@@ -59,7 +59,6 @@ namespace gazebo {
         }
 
         // Check for robot namespace
-        robot_namespace_ = "";
         if (_sdf->HasElement("robotNamespace")) {
             robot_namespace_ = _sdf->GetElement("robotNamespace")->Get<std::string>();
         }
@@ -140,7 +139,7 @@ namespace gazebo {
 
         // Listen to the update event. This event is broadcast every
         // simulation iteration.
-        this->updateConnection = event::Events::ConnectWorldUpdateBegin(
+        update_connection_ = event::Events::ConnectWorldUpdateBegin(
             boost::bind(&MimicJointPlugin::UpdateChild, this));
 
         // Output some confirmation
@@ -191,4 +190,5 @@ namespace gazebo {
     }
 
     GZ_REGISTER_MODEL_PLUGIN(MimicJointPlugin);
-}
+
+}  // namespace gazebo

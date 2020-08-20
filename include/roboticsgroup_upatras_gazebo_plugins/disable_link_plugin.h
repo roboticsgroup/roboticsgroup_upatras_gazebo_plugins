@@ -26,30 +26,22 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 // ROS includes
 #include <ros/ros.h>
 
-// Boost includes
-#include <boost/bind.hpp>
-
 // Gazebo includes
 #include <gazebo/common/Plugin.hh>
-#include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
-#include <gazebo/common/common.hh>
 
 namespace gazebo {
 
     class DisableLinkPlugin : public ModelPlugin {
-    public:
+      public:
         DisableLinkPlugin();
-        ~DisableLinkPlugin();
+        virtual ~DisableLinkPlugin() override;
 
-        void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf);
-        void UpdateChild();
+        virtual void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf) override;
 
-    private:
+      private:
         // Parameters
         std::string link_name_;
-
-        bool kill_sim;
 
         // Pointers to the joints
         physics::LinkPtr link_;

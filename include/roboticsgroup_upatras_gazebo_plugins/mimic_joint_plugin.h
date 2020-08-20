@@ -29,26 +29,22 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 // ros_control
 #include <control_toolbox/pid.h>
 
-// Boost includes
-#include <boost/bind.hpp>
-
 // Gazebo includes
 #include <gazebo/common/Plugin.hh>
-#include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
-#include <gazebo/common/common.hh>
 
 namespace gazebo {
 
     class MimicJointPlugin : public ModelPlugin {
-    public:
+      public:
         MimicJointPlugin();
-        ~MimicJointPlugin();
+        virtual ~MimicJointPlugin() override;
 
-        void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf);
+        virtual void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf) override;
+
+      private:
         void UpdateChild();
 
-    private:
         // Parameters
         std::string joint_name_, mimic_joint_name_, robot_namespace_;
         double multiplier_, offset_, sensitiveness_, max_effort_;
@@ -67,7 +63,7 @@ namespace gazebo {
         physics::WorldPtr world_;
 
         // Pointer to the update event connection
-        event::ConnectionPtr updateConnection;
+        event::ConnectionPtr update_connection_;
     };
 
 }
