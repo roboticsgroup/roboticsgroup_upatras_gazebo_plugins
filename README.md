@@ -1,5 +1,5 @@
-roboticsgroup_gazebo_plugins
-================
+roboticsgroup_upatras_gazebo_plugins
+====================================
 
 Collection of small gazebo plugins
 ----------------------------------
@@ -59,10 +59,10 @@ A simple (Model) plugin for Gazebo that allows you to disable a link in Gazebo's
 Usage
 ------
 
-Standard Gazebo plugin import inside xacro/urdf. Use **libroboticsgroup_gazebo_** prefix. E.g. if you want to import MimicJointPlugin:
+Standard Gazebo plugin import inside xacro/urdf. Use **libroboticsgroup_upatras_gazebo_** prefix. E.g. if you want to import MimicJointPlugin:
 
 ```
-libroboticsgroup_gazebo_mimic_joint_plugin.so
+libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so
 ```
 
 Notes
@@ -74,6 +74,5 @@ License
 ----
 
 BSD
-
 
 Copyright (c) 2014, **Konstantinos Chatzilygeroudis**

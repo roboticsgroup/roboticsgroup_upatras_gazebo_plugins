@@ -19,7 +19,7 @@ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVI
 INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
 <package format="2">>
-  <name>roboticsgroup_gazebo_plugins</name>
+  <name>roboticsgroup_upatras_gazebo_plugins</name>
   <version>0.1.0</version>
   <description>Collection of gazebo plugins</description>
 
@@ -29,8 +29,8 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 
   <license>BSD</license>
 
-  <url type="repository">https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins</url>
-  <url type="bugtracker">https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins/issues</url>
+  <url type="repository">https://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins</url>
+  <url type="bugtracker">https://github.com/roboticsgroup/roboticsgroup_upatras_gazebo_plugins/issues</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>gazebo_ros</build_depend>

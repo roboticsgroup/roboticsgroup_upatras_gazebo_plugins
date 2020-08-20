@@ -20,8 +20,8 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **/
 
-#ifndef ROBOTICSGROUP_GAZEBO_PLUGINS_MIMIC_JOINT_PLUGIN
-#define ROBOTICSGROUP_GAZEBO_PLUGINS_MIMIC_JOINT_PLUGIN
+#ifndef ROBOTICSGROUP_UPATRAS_GAZEBO_PLUGINS_MIMIC_JOINT_PLUGIN
+#define ROBOTICSGROUP_UPATRAS_GAZEBO_PLUGINS_MIMIC_JOINT_PLUGIN
 
 // ROS includes
 #include <ros/ros.h>
@@ -39,6 +39,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 #include <gazebo/common/common.hh>
 
 namespace gazebo {
+
     class MimicJointPlugin : public ModelPlugin {
     public:
         MimicJointPlugin();
@@ -68,6 +69,7 @@ namespace gazebo {
         // Pointer to the update event connection
         event::ConnectionPtr updateConnection;
     };
+
 }
 
-#endif
+#endif  // ROBOTICSGROUP_UPATRAS_GAZEBO_PLUGINS_MIMIC_JOINT_PLUGIN
