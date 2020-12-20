@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 2.8.6)
-cmake_policy(SET CMP0048 NEW)
+cmake_minimum_required(VERSION 3.1.0)
 project(roboticsgroup_upatras_gazebo_plugins)
-
-cmake_policy(SET CMP0054 NEW)
 
 find_package(catkin REQUIRED
   COMPONENTS
