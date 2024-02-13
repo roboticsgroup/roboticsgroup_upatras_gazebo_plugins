@@ -24,7 +24,8 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 #define ROBOTICSGROUP_UPATRAS_GAZEBO_PLUGINS_DISABLE_LINK_PLUGIN
 
 // ROS includes
-#include <ros/ros.h>
+// #include <ros/ros.h>
+#include <rclcpp/rclcpp.hpp>
 
 // Gazebo includes
 #include <gazebo/common/Plugin.hh>

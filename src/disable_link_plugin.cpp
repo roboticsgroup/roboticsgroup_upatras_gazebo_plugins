@@ -21,6 +21,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 **/
 
 #include <roboticsgroup_upatras_gazebo_plugins/disable_link_plugin.h>
+#include "gazebo_ros/node.hpp"
 
 namespace gazebo {
 
@@ -37,10 +38,12 @@ namespace gazebo {
     {
         model_ = _parent;
         world_ = model_->GetWorld();
+        auto node = gazebo_ros::Node::Get(_sdf);
 
         // Check for link element
         if (!_sdf->HasElement("link")) {
-            ROS_ERROR("No link element present. DisableLinkPlugin could not be loaded.");
+            RCLCPP_ERROR(node->get_logger(), "No link element present. DisableLinkPlugin could not be loaded.");
+            // ROS_ERROR("No link element present. DisableLinkPlugin could not be loaded.");
             return;
         }
 
@@ -51,10 +54,12 @@ namespace gazebo {
         if (link_) {
             link_->SetEnabled(false);
             // Output some confirmation
-            ROS_INFO_STREAM("DisableLinkPlugin loaded! Link: " << link_name_);
+            RCLCPP_INFO(node->get_logger(), "DisableLinkPlugin loaded! Link: %s", link_name_.c_str());
+            // ROS_INFO_STREAM("DisableLinkPlugin loaded! Link: " << link_name_);
         }
         else
-            ROS_ERROR_STREAM("Link " << link_name_ << " not found! DisableLinkPlugin could not be loaded.");
+            RCLCPP_ERROR(node->get_logger(), "Link %s not found! DisableLinkPlugin could not be loaded.", link_name_.c_str());
+            // ROS_ERROR_STREAM("Link " << link_name_ << " not found! DisableLinkPlugin could not be loaded.");
     }
 
     GZ_REGISTER_MODEL_PLUGIN(DisableLinkPlugin);
