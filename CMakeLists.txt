@@ -1,12 +1,15 @@
-
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.1.0)
 project(roboticsgroup_upatras_gazebo_plugins)
 
-find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(gazebo_dev REQUIRED)
-find_package(gazebo_ros REQUIRED)
-find_package(control_toolbox REQUIRED)
+cmake_policy(SET CMP0054 NEW)
+
+find_package(catkin REQUIRED
+  COMPONENTS
+    control_toolbox
+    gazebo_ros
+    roscpp
+)
+
 find_package(gazebo REQUIRED)
 
 # Default to C++14
